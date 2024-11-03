@@ -13,10 +13,12 @@ public class PlusicTest2 {
     @DirectInject
     public static void directInject(CtClass cc) {
         String code2 = "if(tempR[0].equals(\"SCREENMODE\")) {ru.artem.alaverdyan.fullscreenborderless.elements.PTCFG.screenMode = Integer.parseInt(tempR[1]);System.out.println(\"SCREENMODE: \" + ru.artem.alaverdyan.fullscreenborderless.elements.PTCFG.screenMode);}";
-        String code4 = "fr = new java.io.FileReader(\"mods/FullscreenBorderless/settings/Config.txt\");";
+        String code4 = "fr = new java.io.FileReader(ru.artem.alaverdyan.fullscreenborderless.elements.PTCFG.pathToConfig);";
+        String code5 = "System.out.println(ru.artem.alaverdyan.fullscreenborderless.elements.PTCFG.pathToConfig);";
         try {
             CtMethod method = cc.getDeclaredMethod("main");
             method.insertAt(54, code4);
+            method.insertAt(54, code5);
             method.insertAt(60, code2);
         } catch (NotFoundException | CannotCompileException e) {
             throw new RuntimeException(e);

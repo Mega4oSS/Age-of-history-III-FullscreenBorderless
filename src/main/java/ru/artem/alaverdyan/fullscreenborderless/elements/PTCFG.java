@@ -5,15 +5,27 @@ import aoc.kingdoms.lukasz.jakowski.FileManager;
 import aoc.kingdoms.lukasz.jakowski.setting.SettingsDesktop;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
+import ru.artem.alaverdyan.PlusicAPI;
+
+import java.io.File;
 
 public class PTCFG {
     public static int screenMode = 2;
     public static boolean fullscreenBorderless = false;
+    public static String pathToConfig = "";
+
+    static {
+        for (int i = 0; i < PlusicAPI.mods.size(); i++) {
+            if(PlusicAPI.mods.get(i).getName().equals("FullscreenBorderless")) {
+                pathToConfig = PlusicAPI.mods.get(i).getRoot() + File.separator + "settings" + File.separator +  "Config.txt";
+            }
+        }
+    }
 
     public static void readConfig() {
         try {
-            if (Gdx.files.local("mods/FullscreenBorderless/settings/Config.txt").exists()) {
-                final FileHandle file = Gdx.files.local("mods/FullscreenBorderless/settings/Config.txt");
+            if (Gdx.files.absolute(pathToConfig).exists()) {
+                final FileHandle file = Gdx.files.absolute(pathToConfig);
                 final String tempTags = file.readString();
                 final String[] tSplited = tempTags.replace("\n", "").split(";");
                 for (int i = 0; i < tSplited.length; ++i) {
@@ -59,7 +71,7 @@ public class PTCFG {
         int sMode = 0;
         if(SettingsDesktop.fullscreen == true) sMode = 1;
         if(fullscreenBorderless == true) sMode = 2;
-        final FileHandle fileSave = FileManager.getSaveType("mods/FullscreenBorderless/settings/Config.txt");
+        final FileHandle fileSave = Gdx.files.absolute(pathToConfig);
         fileSave.writeString("SCREENMODE=" + sMode + ";\n", false);
         fileSave.writeString("WIDTH=" + SettingsDesktop.iWidth + ";\n", true);
         fileSave.writeString("HEIGHT=" + SettingsDesktop.iHeight + ";\n", true);
