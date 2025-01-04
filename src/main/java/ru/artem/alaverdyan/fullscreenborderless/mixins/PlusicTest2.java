@@ -8,7 +8,7 @@ import ru.artem.alaverdyan.injections.At;
 import ru.artem.alaverdyan.injections.DirectInject;
 import ru.artem.alaverdyan.injections.Inject;
 
-@Mixin(value = "aoc.kingdoms.lukasz.jakowski.desktop.DesktopLauncher")
+@Mixin(value = "aoh.kingdoms.history.mainGame.desktop.DesktopLauncher")
 public class PlusicTest2 {
     @DirectInject
     public static void directInject(CtClass cc) {

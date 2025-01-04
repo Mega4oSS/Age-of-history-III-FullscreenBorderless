@@ -1,9 +1,9 @@
 package ru.artem.alaverdyan.fullscreenborderless.elements;
 
-import aoc.kingdoms.lukasz.jakowski.Game;
-import aoc.kingdoms.lukasz.jakowski.setting.SettingsDesktop;
-import aoc.kingdoms.lukasz.menu_element.button.ButtonGame2;
-import aoc.kingdoms.lukasz.textures.Images;
+import aoh.kingdoms.history.mainGame.Game;
+import aoh.kingdoms.history.mainGame.setting.SettingsDesktop;
+import aoh.kingdoms.history.menu_element.button.ButtonGame2;
+import aoh.kingdoms.history.textures.Images;
 
 public class PlusicElementTest extends ButtonGame2 {
     public PlusicElementTest(String sText, int fontID, int iTextPositionX, int iPosX, int iPosY, int nWidth, boolean isClickable) {

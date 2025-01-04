@@ -1,8 +1,6 @@
 package ru.artem.alaverdyan.fullscreenborderless.elements;
-
-import aoc.kingdoms.lukasz.jakowski.CFG;
-import aoc.kingdoms.lukasz.jakowski.FileManager;
-import aoc.kingdoms.lukasz.jakowski.setting.SettingsDesktop;
+import aoh.kingdoms.history.mainGame.CFG;
+import aoh.kingdoms.history.mainGame.setting.SettingsDesktop;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import ru.artem.alaverdyan.PlusicAPI;
